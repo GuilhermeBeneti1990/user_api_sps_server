@@ -23,7 +23,7 @@
 ----------------------------------
 ROTAS
 ----------------------------------
-# [POST] /register
+## [POST] /register - Registo de usuário (Sign Up)
 -  Não necessita de autenticação
 -  Body:
   ```
@@ -50,7 +50,7 @@ ROTAS
 * Retorna um token e as informações do user
 
 
-# [POST] /login
+## [POST] /login - Login de usuário
 -  Não necessita de autenticação
 -  Body:
   ```
@@ -62,7 +62,7 @@ ROTAS
 * Retorna um token.
 
 
-# [GET] /users
+## [GET] /users - Listagem de usuários
 -  Necessita de autenticação
 -  Response:
   ```
@@ -86,7 +86,7 @@ ROTAS
 * Retorna uma lista de users.
 
 
-# [POST] /users
+## [POST] /users - Criação de usuários
 -  Necessita de autenticação
 -  Body:
   ```
@@ -108,7 +108,7 @@ ROTAS
 * Retorna o user criado.
 
 
-# [GET] /users/:id
+## [GET] /users/:id - Usuário por ID
 -  Necessita de autenticação
 -  Response:
   ```
@@ -123,7 +123,7 @@ ROTAS
 
 
 
-# [PUT] /users/:id
+## [PUT] /users/:id - Update de usuário
 -  Necessita de autenticação
 -  Body:
   ```
@@ -145,7 +145,7 @@ ROTAS
 
 
 
-# [PATCH] /users/:id/roles
+## [PATCH] /users/:id/roles - Atualização de tipo de usuário
 -  Necessita de autenticação
 -  Body:
   ```
@@ -166,7 +166,7 @@ ROTAS
 
 
 
-# [DELETE] /users/:id/roles
+## [DELETE] /users/:id/roles - Remoção de usuário
 -  Necessita de autenticação
 -  Response:
   ```
