@@ -26,13 +26,16 @@ ROTAS
 # [POST] /register
 -  Não necessita de autenticação
 -  Body:
+  ```
   {
     name: "John Doe",
     email: "john@email.com.br",
     password: "123",
     confirmPassword: "123"
   }
+```
 -  Response:
+  ```
 {
    user: {
     id: "uuidv412312434",
@@ -42,6 +45,7 @@ ROTAS
   },
   token: "12hoadg0dyqsakdjghajfghofdghsisg34543fzgdfgdfg534"
 }
+```
 * O ID será gerado automaticamente e o type por default sempre será "user" ao cadastrar/registrar um novo usuário.
 * Retorna um token e as informações do user
 
@@ -49,16 +53,19 @@ ROTAS
 # [POST] /login
 -  Não necessita de autenticação
 -  Body:
+  ```
   {
     email: "john@email.com.br",
     password: "123"
   }
+```
 * Retorna um token.
 
 
 # [GET] /users
 -  Necessita de autenticação
 -  Response:
+  ```
   [
    {
       id: "uuidv412312434",
@@ -75,37 +82,43 @@ ROTAS
       type: "user"
     },
   ]
+```
 * Retorna uma lista de users.
 
 
 # [POST] /users
 -  Necessita de autenticação
 -  Body:
+  ```
   {
     name: "John Doe",
     email: "john@email.com.br",
     password: "123"
   }
+```
 -  Response:
-
+```
  {
     id: "uuidv412312434",
     name: "John Doe",
     email: "john@email.com.br",
     type: "user"
   }
+```
 * Retorna o user criado.
 
 
 # [GET] /users/:id
 -  Necessita de autenticação
 -  Response:
+  ```
  {
     id: "uuidv412312434",
     name: "John Doe",
     email: "john@email.com.br",
     type: "user"
   }
+```
 * Retorna o user de acordo com o id.
 
 
@@ -113,17 +126,21 @@ ROTAS
 # [PUT] /users/:id
 -  Necessita de autenticação
 -  Body:
+  ```
   {
     name: "John Doe Atualizado",
     email: "johnatualizado@email.com.br",
   }
+```
 -  Response:
+  ```
  {
     id: "uuidv412312434",
     name: "John Doe Atualizado",
     email: "johnatualizado@email.com.br",
     type: "user"
   }
+```
 * Retorna o user atualizado.
 
 
@@ -131,16 +148,20 @@ ROTAS
 # [PATCH] /users/:id/roles
 -  Necessita de autenticação
 -  Body:
+  ```
   {
     role: "admin"
   }
+```
 -  Response:
+  ```
  {
     id: "uuidv412312434",
     name: "John Doe",
     email: "john@email.com.br",
     type: "admin"
   }
+```
 * Retorna o user já com o tipo de usuário atualizado.
 
 
@@ -148,7 +169,9 @@ ROTAS
 # [DELETE] /users/:id/roles
 -  Necessita de autenticação
 -  Response:
+  ```
  {
     id: "uuidv412312434"
   }
+```
 * Retorna o id do user que foi removido.
