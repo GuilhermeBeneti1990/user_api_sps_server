@@ -1,34 +1,3 @@
-----------------------------------
-ESPANHOL
-----------------------------------
-
-## Prueba NODE
-
-- Crear un CRUD (API REST) en Node para el registro de usuarios.
-- Para la creación de la prueba, utilizar un repositorio falso de usuarios (puede ser en memoria).
-
-## Reglas
-
-- Debe existir un usuario administrador previamente registrado para utilizar la autenticación (no es necesario cifrar la contraseña):
-{
-  "name": "admin",
-  "email": "admin@spsgroup.com.br",
-  "type": "admin",
-  "password": "1234"
-}
-
-- Crear una ruta de autenticación (token Jwt).
-- Las rutas de la API solo pueden ser ejecutadas si el usuario está autenticado.
-- Debe ser posible añadir usuarios con los campos: email, nombre, type, password.
-- No debe ser posible registrar un correo electrónico ya existente.
-- Debe ser posible eliminar usuarios.
-- Debe ser posible modificar los datos de un usuario.
-
-
-----------------------------------
-PORTUGUÊS
-----------------------------------
-
 # Teste NODE
 
 - Criar um CRUD (API REST) em node para cadastro de usuários
@@ -50,3 +19,159 @@ PORTUGUÊS
 - Não deve ser possível cadastrar o e-mail já cadastrado
 - Deve ser possível remover usuário
 - Deve ser possível alterar os dados do usuário
+
+----------------------------------
+ROTAS
+----------------------------------
+## [POST] /register - Registo de usuário (Sign Up)
+-  Não necessita de autenticação
+-  Body:
+  ```
+  {
+    name: "John Doe",
+    email: "john@email.com.br",
+    password: "123",
+    confirmPassword: "123"
+  }
+```
+-  Response:
+  ```
+{
+   user: {
+    id: "uuidv412312434",
+    name: "John Doe",
+    email: "john@email.com.br",
+    type: "user"
+  },
+  token: "12hoadg0dyqsakdjghajfghofdghsisg34543fzgdfgdfg534"
+}
+```
+* O ID será gerado automaticamente e o type por default sempre será "user" ao cadastrar/registrar um novo usuário.
+* Retorna um token e as informações do user
+
+
+## [POST] /login - Login de usuário
+-  Não necessita de autenticação
+-  Body:
+  ```
+  {
+    email: "john@email.com.br",
+    password: "123"
+  }
+```
+* Retorna um token.
+
+
+## [GET] /users - Listagem de usuários
+-  Necessita de autenticação
+-  Response:
+  ```
+  [
+   {
+      id: "uuidv412312434",
+      name: "John Doe",
+      email: "john@email.com.br",
+      password: "123",
+      type: "user"
+    },
+    {
+      id: "uuidv4as84928742",
+      name: "John Doe 2",
+      email: "john2@email.com.br",
+      password: "123",
+      type: "user"
+    },
+  ]
+```
+* Retorna uma lista de users.
+
+
+## [POST] /users - Criação de usuários
+-  Necessita de autenticação
+-  Body:
+  ```
+  {
+    name: "John Doe",
+    email: "john@email.com.br",
+    password: "123"
+  }
+```
+-  Response:
+```
+ {
+    id: "uuidv412312434",
+    name: "John Doe",
+    email: "john@email.com.br",
+    type: "user"
+  }
+```
+* Retorna o user criado.
+
+
+## [GET] /users/:id - Usuário por ID
+-  Necessita de autenticação
+-  Response:
+  ```
+ {
+    id: "uuidv412312434",
+    name: "John Doe",
+    email: "john@email.com.br",
+    type: "user"
+  }
+```
+* Retorna o user de acordo com o id.
+
+
+
+## [PUT] /users/:id - Update de usuário
+-  Necessita de autenticação
+-  Body:
+  ```
+  {
+    name: "John Doe Atualizado",
+    email: "johnatualizado@email.com.br",
+  }
+```
+-  Response:
+  ```
+ {
+    id: "uuidv412312434",
+    name: "John Doe Atualizado",
+    email: "johnatualizado@email.com.br",
+    type: "user"
+  }
+```
+* Retorna o user atualizado.
+
+
+
+## [PATCH] /users/:id/roles - Atualização de tipo de usuário
+-  Necessita de autenticação
+-  Body:
+  ```
+  {
+    role: "admin"
+  }
+```
+-  Response:
+  ```
+ {
+    id: "uuidv412312434",
+    name: "John Doe",
+    email: "john@email.com.br",
+    type: "admin"
+  }
+```
+* Retorna o user já com o tipo de usuário atualizado.
+
+
+
+## [DELETE] /users/:id/roles - Remoção de usuário
+-  Necessita de autenticação
+-  Response:
+  ```
+ {
+    id: "uuidv412312434"
+  }
+```
+* Retorna o id do user que foi removido.
