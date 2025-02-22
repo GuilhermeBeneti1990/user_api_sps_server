@@ -63,7 +63,7 @@ ROTAS
 
 
 ## [GET] /users - Listagem de usuários
--  Necessita de autenticação
+-  Necessita de autenticação (Bearer token)
 -  Response:
   ```
   [
@@ -87,7 +87,7 @@ ROTAS
 
 
 ## [POST] /users - Criação de usuários
--  Necessita de autenticação
+-  Necessita de autenticação (Bearer token)
 -  Body:
   ```
   {
@@ -109,7 +109,7 @@ ROTAS
 
 
 ## [GET] /users/:id - Usuário por ID
--  Necessita de autenticação
+-  Necessita de autenticação (Bearer token)
 -  Response:
   ```
  {
@@ -124,7 +124,7 @@ ROTAS
 
 
 ## [PUT] /users/:id - Update de usuário
--  Necessita de autenticação
+-  Necessita de autenticação (Bearer token)
 -  Body:
   ```
   {
@@ -146,7 +146,7 @@ ROTAS
 
 
 ## [PATCH] /users/:id/roles - Atualização de tipo de usuário
--  Necessita de autenticação
+-  Necessita de autenticação (Bearer token)
 -  Body:
   ```
   {
@@ -167,7 +167,7 @@ ROTAS
 
 
 ## [DELETE] /users/:id/roles - Remoção de usuário
--  Necessita de autenticação
+-  Necessita de autenticação (Bearer token)
 -  Response:
   ```
  {
