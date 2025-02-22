@@ -16,7 +16,9 @@ export default class UserDelete {
 
         await this.userRepository.delete(id);
 
-        return id;
+        return {
+            id
+        };
     }
 
 }
