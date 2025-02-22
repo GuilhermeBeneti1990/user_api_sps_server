@@ -33,7 +33,6 @@ ROTAS
     confirmPassword: "123"
   }
 -  Response:
-
 {
    user: {
     id: "uuidv412312434",
