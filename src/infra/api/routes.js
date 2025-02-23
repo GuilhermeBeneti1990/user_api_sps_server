@@ -124,7 +124,7 @@ routes.delete("/users/:id", autheticate, async (req, res) => {
   const service = new UserDelete(repository);
   const id = req.params.id
   const idUserRemoved = await service.execute(id);
-  if(!user) {
+  if(!idUserRemoved) {
     res.status(404).send({
       message: "User not found!"
     })

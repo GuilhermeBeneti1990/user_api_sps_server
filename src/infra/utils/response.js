@@ -5,6 +5,7 @@ export default function response(user) {
         id: user.id,
         name: user.name,
         email: user.email,
+        password: user.password,
         type: user.type
     });
 
